@@ -5,7 +5,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { products, Product } from '@/lib/data';
 import { ProductCard } from '@/components/ProductCard';
-import { Filter, ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -17,19 +17,18 @@ import {
 export default function ShopPage() {
   const searchParams = useSearchParams();
   const initialGender = searchParams.get('gender') as 'Her' | 'Him' | null;
+  const initialCategory = searchParams.get('category') || 'All';
   
   const [activeGender, setActiveGender] = useState<'All' | 'Her' | 'Him'>(initialGender || 'All');
-  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [sortBy, setSortBy] = useState<string>('featured');
 
   useEffect(() => {
     if (initialGender) setActiveGender(initialGender);
-  }, [initialGender]);
+    if (initialCategory) setActiveCategory(initialCategory);
+  }, [initialGender, initialCategory]);
 
-  const categories = useMemo(() => {
-    const cats = Array.from(new Set(products.map(p => p.category)));
-    return ['All', ...cats];
-  }, []);
+  const categories = ['All', 'Apparel', 'Accessories', 'Footwear', 'Jewelry', 'Watches'];
 
   const filteredProducts = useMemo(() => {
     let result = products;
@@ -64,7 +63,7 @@ export default function ShopPage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 pb-8 border-b border-black/5">
           <div className="flex flex-wrap gap-8 items-center">
             <div className="flex items-center gap-4">
-              <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">Gender:</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">Universe:</span>
               <div className="flex gap-4">
                 {['All', 'Her', 'Him'].map((g) => (
                   <button 
@@ -72,7 +71,7 @@ export default function ShopPage() {
                     onClick={() => setActiveGender(g as any)}
                     className={`text-xs uppercase tracking-widest font-bold pb-1 transition-all ${activeGender === g ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
                   >
-                    {g === 'All' ? 'All' : g}
+                    {g}
                   </button>
                 ))}
               </div>
@@ -82,24 +81,17 @@ export default function ShopPage() {
 
             <div className="flex items-center gap-4">
               <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">Category:</span>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="h-auto p-0 text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:bg-transparent">
-                    {activeCategory} <ChevronDown className="w-3 h-3" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="rounded-none border-black/5 min-w-[200px]">
-                  {categories.map((cat) => (
-                    <DropdownMenuItem 
-                      key={cat} 
-                      onClick={() => setActiveCategory(cat)}
-                      className="text-[10px] uppercase tracking-widest font-bold py-3 cursor-pointer"
-                    >
-                      {cat}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="flex flex-wrap gap-4">
+                {categories.map((cat) => (
+                  <button 
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`text-[10px] uppercase tracking-widest font-bold pb-1 transition-all ${activeCategory === cat ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

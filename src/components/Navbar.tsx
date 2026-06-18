@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ShoppingBag, Search, User, Menu, X, Sparkles } from 'lucide-react';
+import { ShoppingBag, Search, User, Menu, X } from 'lucide-react';
 import { useCart } from '@/lib/store';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui
 import { ScrollArea } from './ui/scroll-area';
 import { formatPrice } from '@/lib/data';
 import { StylistModal } from './ai/StylistModal';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export function Navbar() {
   const { cart, total, itemCount, removeItem, updateQuantity } = useCart();
@@ -22,27 +28,46 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const ShopDropdown = ({ gender }: { gender: 'Her' | 'Him' }) => (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="hover:text-gold transition-colors outline-none">
+        For {gender}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-white border-black/5 rounded-none min-w-[160px] p-2 mt-2">
+        <DropdownMenuItem asChild>
+          <Link href={`/shop?gender=${gender}&category=Apparel`} className="text-[10px] uppercase tracking-widest font-bold py-3 cursor-pointer block">Apparel</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href={`/shop?gender=${gender}&category=Accessories`} className="text-[10px] uppercase tracking-widest font-bold py-3 cursor-pointer block">Accessories</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href={`/shop?gender=${gender}&category=Footwear`} className="text-[10px] uppercase tracking-widest font-bold py-3 cursor-pointer block">Shoes</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6 px-8 md:px-16 flex items-center justify-between",
-      scrolled ? "bg-white/90 backdrop-blur-md py-4 border-b border-black/5" : "bg-transparent"
+      scrolled ? "bg-white/90 backdrop-blur-md py-4 border-b border-black/5" : "bg-transparent text-white"
     )}>
-      <div className="flex items-center gap-8">
+      <div className={cn("flex items-center gap-8", scrolled ? "text-black" : "text-white")}>
         <button className="md:hidden">
           <Menu className="w-5 h-5 stroke-[1px]" />
         </button>
         <div className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-[0.2em] font-medium">
-          <Link href="/shop?gender=Her" className="hover:text-gold transition-colors">For Her</Link>
-          <Link href="/shop?gender=Him" className="hover:text-gold transition-colors">For Him</Link>
+          <ShopDropdown gender="Her" />
+          <ShopDropdown gender="Him" />
           <Link href="/shop" className="hover:text-gold transition-colors">The World of Nexora</Link>
         </div>
       </div>
 
-      <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+      <Link href="/" className={cn("absolute left-1/2 -translate-x-1/2", scrolled ? "text-black" : "text-white")}>
         <h1 className="text-2xl md:text-3xl font-headline tracking-[0.15em] font-black uppercase">Nexora</h1>
       </Link>
 
-      <div className="flex items-center gap-6">
+      <div className={cn("flex items-center gap-6", scrolled ? "text-black" : "text-white")}>
         <StylistModal />
         
         <button className="hidden sm:block">
@@ -81,7 +106,7 @@ export function Navbar() {
                   </Button>
                 </div>
               ) : (
-                <div className="py-8 space-y-8">
+                <div className="py-8 space-y-8 text-black">
                   {cart.map((item) => (
                     <div key={item.id} className="flex gap-6 group">
                       <div className="w-24 h-32 bg-pearl overflow-hidden shrink-0">
@@ -119,7 +144,7 @@ export function Navbar() {
             </ScrollArea>
 
             {cart.length > 0 && (
-              <div className="p-8 border-t border-black/5 space-y-4">
+              <div className="p-8 border-t border-black/5 space-y-4 text-black">
                 <div className="flex justify-between items-end">
                   <span className="text-xs uppercase tracking-widest font-medium">Estimated Total</span>
                   <span className="text-xl font-headline font-bold">{formatPrice(total)}</span>
