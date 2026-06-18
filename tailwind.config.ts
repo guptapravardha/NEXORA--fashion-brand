@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -10,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ["'PT Sans'", 'sans-serif'],
+        headline: ["'Playfair Display'", 'serif'],
         code: ['monospace'],
       },
       colors: {
@@ -48,6 +49,12 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        gold: {
+          DEFAULT: '#B5935A',
+          hover: '#9B7D4A',
+          light: '#D4B98E',
+        },
+        pearl: '#F5F5F7',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',

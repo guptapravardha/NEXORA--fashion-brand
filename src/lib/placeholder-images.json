@@ -1,3 +1,184 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "her-1",
+      "description": "Silk Evening Gown",
+      "imageUrl": "https://picsum.photos/seed/nexora1/1200/1600",
+      "imageHint": "luxury dress"
+    },
+    {
+      "id": "her-2",
+      "description": "Velvet Clutch Bag",
+      "imageUrl": "https://picsum.photos/seed/nexora2/800/1000",
+      "imageHint": "luxury bag"
+    },
+    {
+      "id": "her-3",
+      "description": "Diamond Pendant",
+      "imageUrl": "https://picsum.photos/seed/nexora3/800/1000",
+      "imageHint": "luxury jewelry"
+    },
+    {
+      "id": "her-4",
+      "description": "Cashmere Wrap Coat",
+      "imageUrl": "https://picsum.photos/seed/nexora4/1200/1600",
+      "imageHint": "luxury coat"
+    },
+    {
+      "id": "him-1",
+      "description": "Tailored Wool Suit",
+      "imageUrl": "https://picsum.photos/seed/nexora5/1200/1600",
+      "imageHint": "luxury suit"
+    },
+    {
+      "id": "him-2",
+      "description": "Automatic Chronograph",
+      "imageUrl": "https://picsum.photos/seed/nexora6/800/1000",
+      "imageHint": "luxury watch"
+    },
+    {
+      "id": "him-3",
+      "description": "Leather Oxford Shoes",
+      "imageUrl": "https://picsum.photos/seed/nexora7/800/1000",
+      "imageHint": "luxury shoes"
+    },
+    {
+      "id": "him-4",
+      "description": "Silk Necktie",
+      "imageUrl": "https://picsum.photos/seed/nexora8/800/1000",
+      "imageHint": "silk tie"
+    },
+    {
+      "id": "acc-1",
+      "description": "Oversized Sunglasses",
+      "imageUrl": "https://picsum.photos/seed/nexora9/800/1000",
+      "imageHint": "luxury sunglasses"
+    },
+    {
+      "id": "acc-2",
+      "description": "Silk Pocket Square",
+      "imageUrl": "https://picsum.photos/seed/nexora10/800/1000",
+      "imageHint": "luxury accessory"
+    },
+    {
+      "id": "her-5",
+      "description": "Lace Cocktail Dress",
+      "imageUrl": "https://picsum.photos/seed/nexora11/1200/1600",
+      "imageHint": "cocktail dress"
+    },
+    {
+      "id": "her-6",
+      "description": "Gold Hoop Earrings",
+      "imageUrl": "https://picsum.photos/seed/nexora12/800/1000",
+      "imageHint": "gold earrings"
+    },
+    {
+      "id": "him-5",
+      "description": "Tuxedo Jacket",
+      "imageUrl": "https://picsum.photos/seed/nexora13/1200/1600",
+      "imageHint": "luxury tuxedo"
+    },
+    {
+      "id": "him-6",
+      "description": "Silver Cufflinks",
+      "imageUrl": "https://picsum.photos/seed/nexora14/800/1000",
+      "imageHint": "silver cufflinks"
+    },
+    {
+      "id": "her-7",
+      "description": "Satin Pumps",
+      "imageUrl": "https://picsum.photos/seed/nexora15/800/1000",
+      "imageHint": "luxury pumps"
+    },
+    {
+      "id": "her-8",
+      "description": "Leather Tote Bag",
+      "imageUrl": "https://picsum.photos/seed/nexora16/800/1000",
+      "imageHint": "tote bag"
+    },
+    {
+      "id": "him-7",
+      "description": "Merino Wool Sweater",
+      "imageUrl": "https://picsum.photos/seed/nexora17/1200/1600",
+      "imageHint": "wool sweater"
+    },
+    {
+      "id": "him-8",
+      "description": "Leather Messenger Bag",
+      "imageUrl": "https://picsum.photos/seed/nexora18/800/1000",
+      "imageHint": "messenger bag"
+    },
+    {
+      "id": "her-9",
+      "description": "Floral Silk Scarf",
+      "imageUrl": "https://picsum.photos/seed/nexora19/800/1000",
+      "imageHint": "silk scarf"
+    },
+    {
+      "id": "her-10",
+      "description": "Pearl Bracelet",
+      "imageUrl": "https://picsum.photos/seed/nexora20/800/1000",
+      "imageHint": "pearl bracelet"
+    },
+    {
+      "id": "him-9",
+      "description": "Driving Loafers",
+      "imageUrl": "https://picsum.photos/seed/nexora21/800/1000",
+      "imageHint": "driving loafers"
+    },
+    {
+      "id": "him-10",
+      "description": "Alligator Leather Wallet",
+      "imageUrl": "https://picsum.photos/seed/nexora22/800/1000",
+      "imageHint": "leather wallet"
+    },
+    {
+      "id": "her-11",
+      "description": "Statement Choker",
+      "imageUrl": "https://picsum.photos/seed/nexora23/800/1000",
+      "imageHint": "statement jewelry"
+    },
+    {
+      "id": "her-12",
+      "description": "Plissee Midi Skirt",
+      "imageUrl": "https://picsum.photos/seed/nexora24/1200/1600",
+      "imageHint": "luxury skirt"
+    },
+    {
+      "id": "him-11",
+      "description": "Chelsea Boots",
+      "imageUrl": "https://picsum.photos/seed/nexora25/800/1000",
+      "imageHint": "chelsea boots"
+    },
+    {
+      "id": "him-12",
+      "description": "Breton Stripe Tee",
+      "imageUrl": "https://picsum.photos/seed/nexora26/1200/1600",
+      "imageHint": "striped tee"
+    },
+    {
+      "id": "her-13",
+      "description": "Wool Beret",
+      "imageUrl": "https://picsum.photos/seed/nexora27/800/1000",
+      "imageHint": "wool beret"
+    },
+    {
+      "id": "her-14",
+      "description": "Crystal Embellished Sandals",
+      "imageUrl": "https://picsum.photos/seed/nexora28/800/1000",
+      "imageHint": "luxury sandals"
+    },
+    {
+      "id": "him-13",
+      "description": "Cotton Chinos",
+      "imageUrl": "https://picsum.photos/seed/nexora29/1200/1600",
+      "imageHint": "luxury chinos"
+    },
+    {
+      "id": "him-14",
+      "description": "Linen Button Down",
+      "imageUrl": "https://picsum.photos/seed/nexora30/1200/1600",
+      "imageHint": "linen shirt"
+    }
+  ]
 }
