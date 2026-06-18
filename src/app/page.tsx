@@ -70,10 +70,10 @@ export default function Home() {
           </div>
           <div className="aspect-video bg-white/5 relative overflow-hidden group">
              <img 
-              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1280&q=80" 
+              src="https://images.unsplash.com/photo-1445205170230-053b830c6050?auto=format&fit=crop&w=1280&q=80" 
               alt="Fashion Campaign Film" 
               className="w-full h-full object-cover brightness-50 group-hover:brightness-75 transition-all duration-1000"
-              data-ai-hint="fashion film"
+              data-ai-hint="fashion editorial"
             />
             <div className="absolute inset-0 flex items-center justify-center">
                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/50 flex items-center justify-center group-hover:scale-110 transition-transform">
