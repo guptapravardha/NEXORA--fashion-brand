@@ -50,26 +50,26 @@ function ShopContent() {
   }, [activeGender, activeCategory, sortBy]);
 
   return (
-    <div className="pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-16 min-h-screen">
+    <div className="pt-24 md:pt-40 pb-16 md:pb-24 px-4 md:px-16 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <header className="mb-12 md:mb-20 space-y-4 md:space-y-6">
-          <span className="text-[10px] uppercase tracking-[0.5em] text-gold font-bold">Collection 2024</span>
-          <h1 className="text-4xl md:text-7xl font-headline font-black uppercase tracking-widest leading-tight">
-            {activeGender === 'All' ? 'The Entire World' : `${activeGender}'s World`}
+        <header className="mb-10 md:mb-20 space-y-4 md:space-y-6">
+          <span className="text-[10px] uppercase tracking-[0.5em] text-gold font-black">Archive 2024</span>
+          <h1 className="text-3xl md:text-7xl font-headline font-black uppercase tracking-widest leading-tight">
+            {activeGender === 'All' ? 'Complete Universe' : `${activeGender}'s Universe`}
           </h1>
         </header>
 
-        <div className="flex flex-col gap-8 mb-12 pb-6 border-b border-black/5">
+        <div className="flex flex-col gap-6 mb-12 pb-6 border-b border-black/5">
           <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-6">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Universe:</span>
+                <span className="text-[9px] uppercase tracking-widest font-black text-muted-foreground">Universe:</span>
                 <div className="flex gap-4">
                   {['All', 'Her', 'Him'].map((g) => (
                     <button 
                       key={g}
                       onClick={() => setActiveGender(g as any)}
-                      className={`text-[10px] md:text-xs uppercase tracking-widest font-bold pb-1 transition-all ${activeGender === g ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
+                      className={`text-[10px] md:text-xs uppercase tracking-widest font-black pb-1 transition-all ${activeGender === g ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
                     >
                       {g}
                     </button>
@@ -80,15 +80,14 @@ function ShopContent() {
               <div className="hidden md:block h-6 w-[1px] bg-black/10"></div>
 
               <div className="flex items-center gap-3">
-                <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">Category:</span>
+                <span className="text-[9px] uppercase tracking-widest font-black text-muted-foreground">Category:</span>
                 <div className="flex flex-wrap gap-4">
-                  {/* On mobile we might want a dropdown for categories if there are too many */}
                   <div className="hidden sm:flex gap-4">
                     {categories.map((cat) => (
                       <button 
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
-                        className={`text-[10px] uppercase tracking-widest font-bold pb-1 transition-all ${activeCategory === cat ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
+                        className={`text-[10px] uppercase tracking-widest font-black pb-1 transition-all ${activeCategory === cat ? 'text-black border-b-2 border-gold' : 'text-muted-foreground border-b-2 border-transparent hover:text-black'}`}
                       >
                         {cat}
                       </button>
@@ -97,7 +96,7 @@ function ShopContent() {
                   <div className="sm:hidden">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-auto p-0 text-[10px] uppercase tracking-widest font-bold flex items-center gap-1">
+                        <Button variant="ghost" className="h-auto p-0 text-[10px] uppercase tracking-widest font-black flex items-center gap-1 focus:outline-none">
                           {activeCategory} <ChevronDown className="w-3 h-3" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -115,10 +114,10 @@ function ShopContent() {
             </div>
 
             <div className="flex items-center justify-between w-full md:w-auto gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-black/5">
-              <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground">{filteredProducts.length} Results</span>
+              <span className="text-[9px] uppercase tracking-widest font-black text-muted-foreground">{filteredProducts.length} Results</span>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="h-auto p-0 text-[10px] md:text-xs uppercase tracking-widest font-bold flex items-center gap-2 hover:bg-transparent">
+                  <Button variant="ghost" className="h-auto p-0 text-[10px] md:text-xs uppercase tracking-widest font-black flex items-center gap-2 hover:bg-transparent focus:outline-none">
                     Sort By <SlidersHorizontal className="w-3 h-3" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -134,17 +133,17 @@ function ShopContent() {
 
         {filteredProducts.length === 0 ? (
           <div className="py-24 text-center space-y-4">
-            <h3 className="text-lg font-headline font-bold uppercase tracking-widest text-muted-foreground">No matches found</h3>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-widest text-muted-foreground">No matches in current criteria</h3>
             <Button 
               variant="link" 
               onClick={() => { setActiveCategory('All'); setActiveGender('All'); }}
-              className="uppercase text-[10px] tracking-widest text-gold"
+              className="uppercase text-[10px] tracking-widest text-gold font-black"
             >
-              Reset Filters
+              Reset Universal View
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 md:gap-x-12 gap-y-12 md:gap-y-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-x-12 gap-y-12 md:gap-y-20">
             {filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -157,7 +156,7 @@ function ShopContent() {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={<div className="pt-40 text-center uppercase tracking-widest text-xs">Loading Collection...</div>}>
+    <Suspense fallback={<div className="pt-40 text-center uppercase tracking-widest text-xs font-black">Loading Nexora Collection...</div>}>
       <ShopContent />
     </Suspense>
   );

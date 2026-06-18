@@ -3,74 +3,74 @@
     {
       "id": "her-apparel-1",
       "description": "Silk Evening Gown",
-      "imageUrl": "https://picsum.photos/seed/her1/1200/1600",
-      "imageHint": "luxury gown"
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-gown-1/1200/1600",
+      "imageHint": "fashion model dress"
     },
     {
       "id": "her-apparel-2",
       "description": "Cashmere Wrap Coat",
-      "imageUrl": "https://picsum.photos/seed/her2/1200/1600",
-      "imageHint": "luxury coat"
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-coat-1/1200/1600",
+      "imageHint": "luxury fashion coat"
     },
     {
       "id": "her-acc-1",
-      "description": "Velvet Clutch Bag",
-      "imageUrl": "https://picsum.photos/seed/her3/800/1000",
-      "imageHint": "luxury bag"
+      "description": "High-End Leather Bag",
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-bag-1/800/1000",
+      "imageHint": "luxury fashion bag"
     },
     {
       "id": "her-acc-2",
-      "description": "Diamond Pendant",
-      "imageUrl": "https://picsum.photos/seed/her4/800/1000",
-      "imageHint": "luxury jewelry"
+      "description": "Diamond Jewelry",
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-jewelry-1/800/1000",
+      "imageHint": "luxury jewelry photoshoot"
     },
     {
       "id": "her-shoes-1",
-      "description": "Satin Stiletto Pumps",
-      "imageUrl": "https://picsum.photos/seed/her5/800/1000",
-      "imageHint": "luxury heels"
+      "description": "Designer Stiletto Heels",
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-shoes-1/800/1000",
+      "imageHint": "luxury stiletto heels"
     },
     {
       "id": "him-apparel-1",
-      "description": "Tailored Wool Suit",
-      "imageUrl": "https://picsum.photos/seed/him1/1200/1600",
-      "imageHint": "mens suit"
+      "description": "Bespoke Wool Suit",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-fashion-1/1200/1600",
+      "imageHint": "male fashion suit"
     },
     {
       "id": "him-apparel-2",
-      "description": "Tuxedo Jacket",
-      "imageUrl": "https://picsum.photos/seed/him2/1200/1600",
-      "imageHint": "tuxedo jacket"
+      "description": "Tailored Tuxedo",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-fashion-2/1200/1600",
+      "imageHint": "mens formal fashion"
     },
     {
       "id": "him-acc-1",
-      "description": "Automatic Chronograph",
-      "imageUrl": "https://picsum.photos/seed/him3/800/1000",
-      "imageHint": "luxury watch"
+      "description": "Luxury Watch",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-watch-1/800/1000",
+      "imageHint": "luxury wrist watch"
     },
     {
       "id": "him-acc-2",
-      "description": "Silk Necktie",
-      "imageUrl": "https://picsum.photos/seed/him4/800/1000",
-      "imageHint": "silk tie"
+      "description": "Silk Tie Collection",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-acc-1/800/1000",
+      "imageHint": "mens fashion accessories"
     },
     {
       "id": "him-shoes-1",
-      "description": "Leather Oxford Shoes",
-      "imageUrl": "https://picsum.photos/seed/him5/800/1000",
-      "imageHint": "mens oxfords"
+      "description": "Handcrafted Leather Oxfords",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-shoes-1/800/1000",
+      "imageHint": "mens luxury oxfords"
     },
     {
       "id": "him-shoes-2",
-      "description": "Chelsea Boots",
-      "imageUrl": "https://picsum.photos/seed/him6/800/1000",
-      "imageHint": "chelsea boots"
+      "description": "Italian Leather Boots",
+      "imageUrl": "https://picsum.photos/seed/nexora-mens-boots-1/800/1000",
+      "imageHint": "mens leather boots"
     },
     {
       "id": "unisex-acc-1",
-      "description": "Aviator Sunglasses",
-      "imageUrl": "https://picsum.photos/seed/uni1/800/1000",
-      "imageHint": "sunglasses"
+      "description": "Designer Sunglasses",
+      "imageUrl": "https://picsum.photos/seed/nexora-fashion-shades-1/800/1000",
+      "imageHint": "fashion sunglasses model"
     }
   ]
 }
