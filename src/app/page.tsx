@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Hero } from '@/components/home/Hero';
@@ -7,7 +8,10 @@ import { products } from '@/lib/data';
 import Link from 'next/link';
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 4);
+  // Use a mix of items for the home page essentials
+  const featuredProducts = products.filter(p => ['w1', 'm1', 'w11', 'm12'].includes(p.id)).slice(0, 4);
+  // If IDs changed, just fallback to first 4
+  const displayProducts = featuredProducts.length === 4 ? featuredProducts : products.slice(0, 4);
 
   return (
     <div className="bg-white overflow-x-hidden">
@@ -33,7 +37,7 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 md:gap-y-16">
-            {featuredProducts.map((product) => (
+            {displayProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -60,13 +64,13 @@ export default function Home() {
             </p>
             <div className="pt-6 md:pt-8">
               <Link href="/shop" className="inline-block px-10 md:px-12 py-4 md:py-5 border border-white uppercase text-[10px] md:text-xs tracking-[0.3em] font-black hover:bg-white hover:text-black transition-all duration-500">
-                Watch the Film
+                Explore The World
               </Link>
             </div>
           </div>
           <div className="aspect-video bg-white/5 relative overflow-hidden group">
              <img 
-              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1280&q=80" 
+              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1280&q=80" 
               alt="Fashion Campaign Film" 
               className="w-full h-full object-cover brightness-50 group-hover:brightness-75 transition-all duration-1000"
               data-ai-hint="fashion film"
