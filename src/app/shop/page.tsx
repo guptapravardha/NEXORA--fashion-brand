@@ -1,11 +1,11 @@
 
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { products, Product } from '@/lib/data';
 import { ProductCard } from '@/components/ProductCard';
-import { ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
   const initialGender = searchParams.get('gender') as 'Her' | 'Him' | null;
   const initialCategory = searchParams.get('category') || 'All';
@@ -132,5 +132,13 @@ export default function ShopPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="pt-40 text-center uppercase tracking-widest text-xs">Loading Collection...</div>}>
+      <ShopContent />
+    </Suspense>
   );
 }

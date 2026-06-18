@@ -107,7 +107,7 @@ export const products: Product[] = [
     imageHint: getPlaceholder('unisex-acc-1').imageHint
   },
   {
-    id: '13',
+    id: '10',
     name: 'Midnight Tuxedo Jacket',
     price: 155000,
     category: 'Apparel',
@@ -117,7 +117,7 @@ export const products: Product[] = [
     imageHint: getPlaceholder('him-apparel-2').imageHint
   },
   {
-    id: '15',
+    id: '11',
     name: 'Satin Stiletto Pumps',
     price: 72000,
     category: 'Footwear',
@@ -127,7 +127,7 @@ export const products: Product[] = [
     imageHint: getPlaceholder('her-shoes-1').imageHint
   },
   {
-    id: '25',
+    id: '12',
     name: 'Rough-Cut Chelsea Boots',
     price: 45000,
     category: 'Footwear',

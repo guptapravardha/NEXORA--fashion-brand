@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -24,7 +25,7 @@ export function SearchModal({ scrolled }: { scrolled: boolean }) {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <button className="group p-1">
-          <Search className={`w-5 h-5 stroke-[1px] transition-colors ${scrolled ? 'text-black' : 'text-white'} group-hover:text-gold`} />
+          <Search className={cn("w-5 h-5 stroke-[1px] transition-colors", scrolled ? "text-black" : "text-white", "group-hover:text-gold")} />
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-5xl bg-white border-none rounded-none p-0 shadow-[0_0_100px_rgba(0,0,0,0.2)]">
@@ -57,7 +58,7 @@ export function SearchModal({ scrolled }: { scrolled: boolean }) {
                   {['New Arrivals', 'Heritage Collection', 'Artisanal Footwear', 'Signature Accessories'].map((s) => (
                     <li key={s} className="hover:text-gold cursor-pointer transition-all flex items-center gap-4 group">
                       <div className="w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-8"></div>
-                      <Link href={`/shop?category=${s.includes('Collection') ? 'All' : s.split(' ').pop()}`} onClick={() => setOpen(false)}>{s}</Link>
+                      <Link href={`/shop?category=${s.includes('Footwear') ? 'Footwear' : (s.includes('Accessories') ? 'Accessories' : 'All')}`} onClick={() => setOpen(false)}>{s}</Link>
                     </li>
                   ))}
                 </ul>
@@ -105,4 +106,8 @@ export function SearchModal({ scrolled }: { scrolled: boolean }) {
       </DialogContent>
     </Dialog>
   );
+}
+
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(' ');
 }
