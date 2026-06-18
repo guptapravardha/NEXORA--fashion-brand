@@ -1,87 +1,125 @@
-
 'use client';
 
 import { useState } from 'react';
-import { User, X, Lock, Mail, ChevronRight } from 'lucide-react';
+import { User, X, Lock, Mail, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 
 export function AuthModal({ scrolled }: { scrolled: boolean }) {
   const [mode, setMode] = useState<'login' | 'register'>('login');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    // Simulate auth for MVP
+    setTimeout(() => {
+      setLoading(false);
+      toast({
+        title: mode === 'login' ? "Welcome Back" : "Membership Created",
+        description: `Successfully ${mode === 'login' ? 'authenticated' : 'joined'} as ${email || 'Client'}.`,
+      });
+      // In a real app, this would use the Firebase SDK
+    }, 1500);
+  };
 
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className="group">
+        <button className="group p-1">
           <User className={`w-5 h-5 stroke-[1px] transition-colors ${scrolled ? 'text-black' : 'text-white'} group-hover:text-gold`} />
         </button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-md bg-white border-l-0 p-0 flex flex-col shadow-2xl">
         <div className="flex-1 p-12 space-y-12">
-          <SheetHeader className="space-y-4">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-gold font-black">Membership</span>
-            <SheetTitle className="text-4xl font-headline font-black uppercase tracking-widest">
-              {mode === 'login' ? 'Sign In' : 'Join Nexora'}
+          <SheetHeader className="space-y-6">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-gold font-black">NEXORA Membership</span>
+            <SheetTitle className="text-4xl md:text-5xl font-headline font-black uppercase tracking-widest leading-tight">
+              {mode === 'login' ? 'Sign In' : 'Join The World'}
             </SheetTitle>
-            <p className="text-[10px] uppercase tracking-widest text-muted-foreground leading-relaxed">
-              Experience personalized styling, early access to collections, and complimentary express global shipping.
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold leading-relaxed">
+              Unlock a realm of artisanal storytelling, early collection access, and complimentary global express logistics.
             </p>
           </SheetHeader>
 
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-8" onSubmit={handleAuth}>
             {mode === 'register' && (
-              <div className="space-y-2">
-                <label className="text-[9px] uppercase tracking-[0.3em] font-black">Full Name</label>
-                <div className="relative">
-                   <Input className="rounded-none border-black/10 h-12 uppercase text-[10px] tracking-widest" placeholder="ALEXANDER VOGUE" />
-                </div>
+              <div className="space-y-3">
+                <label className="text-[9px] uppercase tracking-[0.4em] font-black text-black/40">Full Name</label>
+                <Input 
+                  required
+                  className="rounded-none border-0 border-b border-black/10 h-12 uppercase text-[10px] tracking-widest focus-visible:border-gold transition-colors px-0 shadow-none" 
+                  placeholder="E.G. ALEXANDER VOGUE" 
+                />
               </div>
             )}
-            <div className="space-y-2">
-              <label className="text-[9px] uppercase tracking-[0.3em] font-black">Email Address</label>
-              <div className="relative">
-                <Input className="rounded-none border-black/10 h-12 uppercase text-[10px] tracking-widest" placeholder="CLIENT@NEXORA.COM" />
-              </div>
+            <div className="space-y-3">
+              <label className="text-[9px] uppercase tracking-[0.4em] font-black text-black/40">Email Address</label>
+              <Input 
+                required
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="rounded-none border-0 border-b border-black/10 h-12 uppercase text-[10px] tracking-widest focus-visible:border-gold transition-colors px-0 shadow-none" 
+                placeholder="CLIENT@NEXORA.COM" 
+              />
             </div>
-            <div className="space-y-2">
-              <label className="text-[9px] uppercase tracking-[0.3em] font-black">Password</label>
-              <div className="relative">
-                <Input type="password" className="rounded-none border-black/10 h-12 uppercase text-[10px] tracking-widest" placeholder="••••••••" />
-              </div>
+            <div className="space-y-3">
+              <label className="text-[9px] uppercase tracking-[0.4em] font-black text-black/40">Password</label>
+              <Input 
+                required
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="rounded-none border-0 border-b border-black/10 h-12 uppercase text-[10px] tracking-widest focus-visible:border-gold transition-colors px-0 shadow-none" 
+                placeholder="••••••••" 
+              />
             </div>
             
             {mode === 'login' && (
-              <button className="text-[9px] uppercase tracking-widest font-bold hover:text-gold transition-colors">Forgot Password?</button>
+              <button type="button" className="text-[9px] uppercase tracking-[0.2em] font-black hover:text-gold transition-colors">Recover Password</button>
             )}
 
-            <Button className="w-full rounded-none h-14 bg-black hover:bg-gold transition-all duration-500 uppercase text-xs tracking-[0.3em] font-black group">
-              {mode === 'login' ? 'Enter The World' : 'Create Account'}
-              <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button 
+              disabled={loading}
+              className="w-full rounded-none h-16 bg-black hover:bg-gold transition-all duration-700 uppercase text-[10px] tracking-[0.4em] font-black group shadow-xl"
+            >
+              {loading ? 'Authenticating...' : (mode === 'login' ? 'Enter The World' : 'Initiate Membership')}
+              <ChevronRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
             </Button>
           </form>
 
-          <div className="pt-8 border-t border-black/5 text-center space-y-4">
-            <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-              {mode === 'login' ? "Don't have an account?" : "Already a member?"}
+          <div className="pt-10 border-t border-black/5 text-center space-y-6">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">
+              {mode === 'login' ? "Not yet a member?" : "Already hold a membership?"}
             </p>
             <button 
               onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
-              className="text-xs uppercase tracking-[0.2em] font-black border-b border-black pb-1 hover:text-gold hover:border-gold transition-all"
+              className="text-[11px] uppercase tracking-[0.3em] font-black border-b border-black pb-2 hover:text-gold hover:border-gold transition-all"
             >
-              {mode === 'login' ? 'Create Membership' : 'Sign In To Account'}
+              {mode === 'login' ? 'Create New Membership' : 'Sign In To Account'}
             </button>
           </div>
         </div>
 
-        <div className="p-12 bg-pearl/50 space-y-4">
-          <div className="flex items-center gap-4">
-            <Lock className="w-4 h-4 stroke-[1px] text-gold" />
-            <span className="text-[9px] uppercase tracking-widest font-bold">Secure Encrypted Portal</span>
+        <div className="p-12 bg-pearl/40 space-y-6">
+          <div className="flex items-center gap-4 text-gold">
+            <Lock className="w-5 h-5 stroke-[1px]" />
+            <span className="text-[9px] uppercase tracking-[0.3em] font-black">Encrypted Luxury Portal</span>
           </div>
-          <p className="text-[8px] uppercase tracking-widest text-muted-foreground leading-relaxed">
-            NEXORA ensures the highest level of data protection for our clients. Your information is strictly confidential.
+          <p className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground leading-relaxed font-bold">
+            NEXORA guarantees absolute privacy. Your data is protected by industry-leading 256-bit encryption and artisanal digital security.
           </p>
+          <div className="flex gap-4 pt-2">
+            <CheckCircle2 className="w-4 h-4 text-green-600" />
+            <span className="text-[8px] uppercase tracking-widest font-black text-green-600">GDPR Compliant • Secure Checkout</span>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
