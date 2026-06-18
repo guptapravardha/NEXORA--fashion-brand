@@ -24,14 +24,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       <div className="max-w-7xl mx-auto">
         <nav className="flex flex-wrap items-center gap-2 text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold text-muted-foreground mb-8 md:mb-12">
           <Link href="/" className="hover:text-black transition-colors">Home</Link>
-          <ChevronRight className="w-2 h-2 md:w-3 md:h-3" />
+          <ChevronRight className="w-2 h-2 md:w-3 h-3" />
           <Link href="/shop" className="hover:text-black transition-colors">Shop</Link>
-          <ChevronRight className="w-2 h-2 md:w-3 md:h-3" />
+          <ChevronRight className="w-2 h-2 md:w-3 h-3" />
           <span className="text-black truncate max-w-[150px]">{product.name}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24 mb-20 md:mb-32">
-          <div className="lg:col-span-7 space-y-6 md:space-y-12">
+          <div className="lg:col-span-7">
             <div className="aspect-[3/4] bg-pearl overflow-hidden group">
               <img 
                 src={product.imageUrl} 
@@ -39,22 +39,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 data-ai-hint={product.imageHint}
               />
-            </div>
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
-              <div className="aspect-[4/5] bg-pearl overflow-hidden">
-                <img 
-                  src={`https://picsum.photos/seed/${product.id}detail1/800/1000`} 
-                  alt="Detail" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-[4/5] bg-pearl overflow-hidden">
-                <img 
-                  src={`https://picsum.photos/seed/${product.id}detail2/800/1000`} 
-                  alt="Detail" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
           </div>
 
