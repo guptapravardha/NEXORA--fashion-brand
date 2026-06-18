@@ -27,7 +27,7 @@ const NEXORAStylistAIRecommendationsOutputSchema = z.object({
         description: z.string().describe('A brief description of the item.'),
         rationale: z
           .string()
-          .describe('The stylist's reasoning for including this item in the outfit.'),
+          .describe("The stylist's reasoning for including this item in the outfit."),
       })
     )
     .describe('A curated list of luxury fashion items forming a complete outfit.'),
