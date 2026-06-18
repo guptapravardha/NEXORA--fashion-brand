@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ShoppingBag, Search, User, Menu, X } from 'lucide-react';
+import { ShoppingBag, X, Menu } from 'lucide-react';
 import { useCart } from '@/lib/store';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -11,6 +11,8 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from './ui
 import { ScrollArea } from './ui/scroll-area';
 import { formatPrice } from '@/lib/data';
 import { StylistModal } from './ai/StylistModal';
+import { SearchModal } from './SearchModal';
+import { AuthModal } from './auth/AuthModal';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -70,18 +72,14 @@ export function Navbar() {
       <div className={cn("flex items-center gap-6", scrolled ? "text-black" : "text-white")}>
         <StylistModal />
         
-        <button className="hidden sm:block">
-          <Search className="w-5 h-5 stroke-[1px]" />
-        </button>
+        <SearchModal scrolled={scrolled} />
         
-        <button className="hidden sm:block">
-          <User className="w-5 h-5 stroke-[1px]" />
-        </button>
+        <AuthModal scrolled={scrolled} />
 
         <Sheet>
           <SheetTrigger asChild>
             <button className="relative group">
-              <ShoppingBag className="w-5 h-5 stroke-[1px]" />
+              <ShoppingBag className="w-5 h-5 stroke-[1px] group-hover:text-gold transition-colors" />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-gold text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                   {itemCount}

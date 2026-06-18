@@ -143,5 +143,5 @@ export const formatPrice = (amount: number) => {
     style: 'currency',
     currency: 'INR',
     maximumFractionDigits: 0,
-  }).format(amount);
+  }).format(amount).replace('INR', '₹');
 };
