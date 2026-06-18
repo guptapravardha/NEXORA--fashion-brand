@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Hero } from '@/components/home/Hero';
@@ -17,7 +16,7 @@ export default function Home() {
       <EditorialSection 
         title="Artisanal Mastery"
         subtitle="Heritage Series"
-        image="https://picsum.photos/seed/nexora-editorial-her-1/1200/1600"
+        image="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=80"
         hint="fashion model"
       />
 
@@ -44,7 +43,7 @@ export default function Home() {
       <EditorialSection 
         title="Timeless Sophistication"
         subtitle="For Him"
-        image="https://picsum.photos/seed/nexora-editorial-him-1/1200/1600"
+        image="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=1200&q=80"
         flipped={true}
         hint="mens luxury"
       />
@@ -67,7 +66,7 @@ export default function Home() {
           </div>
           <div className="aspect-video bg-white/5 relative overflow-hidden group">
              <img 
-              src="https://picsum.photos/seed/nexora-video-thumb/1280/720" 
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1280&q=80" 
               alt="Fashion Campaign Film" 
               className="w-full h-full object-cover brightness-50 group-hover:brightness-75 transition-all duration-1000"
               data-ai-hint="fashion film"
@@ -84,13 +83,13 @@ export default function Home() {
       <EditorialSection 
         title="Modern Grace"
         subtitle="For Her"
-        image="https://picsum.photos/seed/nexora-editorial-her-2/1200/1600"
+        image="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=80"
         hint="womens luxury"
       />
 
       <section className="h-[50vh] md:h-[70vh] relative overflow-hidden group">
         <img 
-          src="https://picsum.photos/seed/nexora-campaign-wide/1920/800" 
+          src="https://images.unsplash.com/photo-1550630968-380df4e6ba42?auto=format&fit=crop&w=1920&q=80" 
           alt="Campaign" 
           className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
           data-ai-hint="fashion runway"

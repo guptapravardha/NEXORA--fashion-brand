@@ -47,7 +47,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <img 
           ref={videoRef}
-          src="https://picsum.photos/seed/nexora-editorial-main/1920/1080" 
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1920&q=80" 
           alt="Luxury Fashion Campaign" 
           className="w-full h-full md:h-[115%] object-cover brightness-[0.55] md:brightness-[0.7]"
           data-ai-hint="fashion runway editorial"
